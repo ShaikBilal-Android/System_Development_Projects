@@ -1,6 +1,7 @@
 package com.example.resume_collector.repository
 
 import android.util.Log
+import androidx.lifecycle.LiveData
 import com.example.resume_collector.data.Resume
 import com.example.resume_collector.data.ResumeDao
 import com.example.resume_collector.networking.RetrofitInstance
@@ -10,6 +11,9 @@ class ResumeRepository(private val resumeDao: ResumeDao) {
     suspend fun insertResume(resume: Resume) = resumeDao.insertResume(resume)
     suspend fun updateResume(resume: Resume) = resumeDao.updateResume(resume)
     suspend fun deleteResume(resume: Resume) = resumeDao.deleteResume(resume)
+
+    // added for image uri
+    fun getAllResumesForUri(): LiveData<List<Resume>> = resumeDao.getAllResumesForUri() // No need to launch a coroutine
 //    suspend fun getAllResumes() = resumeDao.getAllResumes()
 //    suspend fun getAllResumes(): List<Resume>{return resumeDao.getAllResumes()}
 //        suspend fun getAllResumes(): List<Resume>? {

@@ -1,6 +1,7 @@
 package com.example.resume_collector.ui
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.resume_collector.R
@@ -39,8 +40,13 @@ class Resume_List : AppCompatActivity() {
 //        viewModel.allResumes.observe(this) { resumes ->
 //            adapter.submitList(resumes)
 //        }
-
-        viewModel.getAllResumes { resumes ->
+// Observe data from ViewModel and update RecyclerView
+        viewModel.allResumeForUri.observe(this) { resumes ->
+            if(resumes.isEmpty()){
+                Log.d("ResumeList","No resumes found in RoomDB")
+            }else{
+                Log.d("ResumeList","Fetched resumes: ${resumes}")
+            }
             adapter.submitList(resumes)
         }
 

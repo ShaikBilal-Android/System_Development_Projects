@@ -1,5 +1,6 @@
 package com.example.resume_collector.data
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 
 @Dao
@@ -17,5 +18,5 @@ interface ResumeDao {
 //    suspend fun getAllResumes(): List<Resume>
 
     @Query("SELECT * FROM resumes")
-    suspend fun getAllResumes(): List<Resume>
+     fun getAllResumesForUri(): LiveData<List<Resume>>
 }

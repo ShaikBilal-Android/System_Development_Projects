@@ -8,8 +8,9 @@ object RetrofitInstance {
 
     //    private const val BASE_URL = "http://localhost:5000/" // Replace with your base URL
     //    private const val BASE_URL = "https://apsac.ap.gov.in/" // Replace with your base URL
-//    private const val BASE_URL = "http://172.16.16.82:5000/" // Replace with your base URL
-    private const val BASE_URL = "http://10.0.2.2:3000/" // Replace with your base URL
+    private const val BASE_URL = "http://172.16.16.82:3000/" // Replace with your base URL
+//    private const val BASE_URL = "https://apsac.ap.gov.in/" // Replace with your base URL
+
 
     val api: ResumeApi by lazy {
         Retrofit.Builder()
